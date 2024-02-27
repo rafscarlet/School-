@@ -1,4 +1,3 @@
-
 import random
 
 class Student:
@@ -11,6 +10,8 @@ class Student:
         self.avg= sum(self.grades)/len(self.grades)
     def studinfo(self):
         print(f'Name : {self.name}, Age: {self.age}, Subjects: {self.subjects}, Grades: {self.grades}, Max Grade: {self.m}, Average Grade: {self.avg} ')
+    def studinfoshort(self):
+        print(f'Name : {self.name}, Age: {self.age}, Average Grade: {self.avg} ')
     def retrain(self,studytime):
         for i in range(len(self.grades)):
             self.grades[i]=self.grades[i]+random.randint(-studytime, 5*studytime)
@@ -98,8 +99,10 @@ class Competition:
             winners.append(z)
             points.append(point)
         print(f"The big winners are: ")
-        for  j,p in zip(winners,points):
-            j.studinfo()
+        subjectlist=['Math','English','Capy']
+        for  i,j,p in zip(range(3),winners,points):
+            print(f'{i+1}) Winner in {subjectlist[i]}: ')
+            j.studinfoshort()
             print(f'Score: {p}')
         return winners
         
